@@ -132,510 +132,194 @@
 
     <main>
       <!-- Hero Section -->
-      <section class="hero bg-white h-full flex flex-col mt-20">
-        <div
-          class="flex-1 flex items-center max-w-7xl mx-auto px-6 w-full"
-        >
-          <div class="w-full mt-12 flex flex-col">
-            <div class="text-center mb-8">
-              <h1
-                class="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-2"
-              >
-                Automate Your Workflow
-              </h1>
-              <h2
-                class="text-4xl md:text-6xl lg:text-7xl font-bold text-blue-600 mb-4"
-              >
-                Just Prompt It
-              </h2>
-              <p
-                class="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto"
-              >
-                ( Zero - Code ) Automation for the tasks that hold you
-                back
-              </p>
-            </div>
-
-            <!-- Hero Image -->
-            <div class="max-w-5xl mx-auto">
-              <div class="relative">
-                <img
-                  src="assets/hero-automation-DXQs77fh.jpg"
-                  alt="Automation workflow visualization with laptop and connected icons"
-                  class="w-full h-auto object-contain"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Problem Statement Section -->
-      <section class="py-20 bg-gray-50">
+      <section class="hero bg-white min-h-screen flex items-center">
         <div class="max-w-7xl mx-auto px-6">
-          <div class="text-center mb-16">
-            <h2
-              class="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
+          <!-- Hero Headlines with balanced styling -->
+          <div class="text-center mb-20">
+            <h1
+              class="text-4xl md:text-6xl font-semibold text-gray-900 mb-4 leading-tight"
             >
-              Are You Drowning in Repetitive Tasks?
+              Automate Your Workflow
+            </h1>
+            <h2
+              class="text-4xl md:text-6xl font-semibold text-gray-900 mb-8 leading-tight"
+            >
+              <span
+                class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+              >
+                Just Describe It
+              </span>
             </h2>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-              Manual data entry, CRM updates, 100s of personalized
-              emails, multiple exports & imports ... Sound familiar?
+            <p
+              class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-normal"
+            >
+              LuminFeed creates workflows from natural language.
+              <br />
+              Describe what you want — we'll build it instantly.
             </p>
           </div>
 
-          <div class="grid md:grid-cols-3 gap-8">
-            <!-- Time Consuming -->
+          <!-- Enhanced Input Interface -->
+          <div class="max-w-5xl mx-auto mb-8">
+            <!-- Input Container with Background -->
             <div
-              class="bg-white rounded-xl p-8 text-center shadow-lg border border-gray-100"
+              class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-6 border border-blue-100/50"
             >
-              <div
-                class="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mx-auto mb-6"
-              >
-                <svg
-                  width="32"
-                  height="32"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+              <div class="relative">
+                <!-- Main Input Container -->
+                <div
+                  class="bg-white border border-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
                 >
-                  <circle
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="#EF4444"
-                    stroke-width="2"
-                  />
-                  <path
-                    d="M12 6v6l4 2"
-                    stroke="#EF4444"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </div>
-              <h3 class="text-2xl font-bold text-gray-900 mb-4">
-                Time Consuming
-              </h3>
-              <p class="text-gray-600 leading-relaxed">
-                Hours spent on manual data entry and repetitive tasks
-                that could be automated instantly
-              </p>
-            </div>
+                  <div class="p-4">
+                    <!-- Text Input -->
+                    <div class="mb-3">
+                      <textarea
+                        id="workflowInput"
+                        class="w-full p-0 text-base bg-transparent border-0 resize-none focus:outline-none text-gray-700 placeholder-gray-400"
+                        rows="2"
+                        style="min-height: 50px; max-height: 120px"
+                        placeholder="What workflow would you like to automate?"
+                      >
+When a new lead submits our contact form, send them a welcome email and add them to our CRM with a 'New Lead' tag</textarea
+                      >
+                    </div>
 
-            <!-- Too Complex -->
-            <div
-              class="bg-white rounded-xl p-8 text-center shadow-lg border border-gray-100"
-            >
-              <div
-                class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-6"
-              >
-                <svg
-                  width="32"
-                  height="32"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M8 16l2.879-7.879a.5.5 0 0 1 .242-.242L18 6l-2.121 6.879a.5.5 0 0 1-.242.242L8 16z"
-                    stroke="#F97316"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M13 13l6-6"
-                    stroke="#F97316"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
+                    <!-- Create Button at bottom right -->
+                    <div class="flex justify-end">
+                      <button
+                        id="createWorkflowBtn"
+                        class="px-6 py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg font-medium transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105 flex items-center gap-1"
+                      >
+                        Create
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M5 12h14m-7-7l7 7-7 7"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <h3 class="text-2xl font-bold text-gray-900 mb-4">
-                Too Complex
-              </h3>
-              <p class="text-gray-600 leading-relaxed">
-                Existing solutions are intimidating and require skills
-                you don't have time to learn
-              </p>
-            </div>
 
-            <!-- Unreliable -->
-            <div
-              class="bg-white rounded-xl p-8 text-center shadow-lg border border-gray-100"
-            >
-              <div
-                class="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center mx-auto mb-6"
-              >
-                <svg
-                  width="32"
-                  height="32"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12 2L3 7l9 5 9-5-9-5z"
-                    stroke="#EAB308"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M3 17l9 5 9-5"
-                    stroke="#EAB308"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M3 12l9 5 9-5"
-                    stroke="#EAB308"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
+              <!-- Example Suggestions -->
+              <div class="mt-4">
+                <p class="text-xs text-gray-600 mb-3 text-left">
+                  Not sure where to start? Try one of these:
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <button
+                    class="example-button px-3 py-2 text-xs text-gray-700 bg-white/70 hover:bg-white border border-gray-200/50 hover:border-gray-300 rounded-lg transition-all duration-200"
+                    data-example="When someone fills out our pricing page form, send them our product demo video and schedule a follow-up email for 3 days later"
+                  >
+                    Lead Follow-up
+                  </button>
+
+                  <button
+                    class="example-button px-3 py-2 text-xs text-gray-700 bg-white/70 hover:bg-white border border-gray-200/50 hover:border-gray-300 rounded-lg transition-all duration-200"
+                    data-example="Every Monday at 9 AM, generate a weekly sales report from our CRM and send it to the sales team on Slack"
+                  >
+                    Generate Sales Report
+                  </button>
+
+                  <button
+                    class="example-button px-3 py-2 text-xs text-gray-700 bg-white/70 hover:bg-white border border-gray-200/50 hover:border-gray-300 rounded-lg transition-all duration-200"
+                    data-example="When a customer support ticket is marked as resolved, send a satisfaction survey and update the customer status in HubSpot"
+                  >
+                    Resolve Support Ticket
+                  </button>
+
+                  <button
+                    class="example-button px-3 py-2 text-xs text-gray-700 bg-white/70 hover:bg-white border border-gray-200/50 hover:border-gray-300 rounded-lg transition-all duration-200"
+                    data-example="When we get a new review above 4 stars, post it to our social media and add the customer to our testimonials database"
+                  >
+                    Share Customer Reviews
+                  </button>
+                </div>
               </div>
-              <h3 class="text-2xl font-bold text-gray-900 mb-4">
-                Unreliable
-              </h3>
-              <p class="text-gray-600 leading-relaxed">
-                Connections randomly break, causing maintenance
-                headaches and troubleshooting burden
-              </p>
             </div>
           </div>
-        </div>
-      </section>
 
-      <!-- No More vs Automate Section -->
-      <section
-        class="py-20 bg-gradient-to-r from-gray-50 to-blue-50 relative overflow-hidden"
-      >
-        <!-- Background decorative elements -->
-        <div class="absolute inset-0 opacity-20">
+          <!-- Value Propositions with automation focus -->
           <div
-            class="absolute top-1/2 left-1/4 w-2 h-2 bg-red-300 rounded-full animate-pulse"
-          ></div>
-          <div
-            class="absolute top-1/3 left-1/3 w-1 h-1 bg-red-400 rounded-full animate-ping"
-          ></div>
-          <div
-            class="absolute bottom-1/3 right-1/4 w-2 h-2 bg-blue-300 rounded-full animate-pulse"
-          ></div>
-          <div
-            class="absolute top-2/3 right-1/3 w-1 h-1 bg-blue-400 rounded-full animate-ping"
-          ></div>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-6 relative">
-          <!-- Section Header -->
-          <div class="text-center mb-16">
-            <h2
-              class="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
-            >
-              We're Rewriting the Rules
-            </h2>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-              Moving from complexity to simplicity, from manual to
-              automated
-            </p>
-          </div>
-
-          <div
-            class="grid lg:grid-cols-2 gap-16 items-center relative"
+            class="flex flex-wrap items-center justify-center gap-8 mt-16 text-sm text-gray-500"
           >
-            <!-- Left Section - Old Way -->
-            <div
-              class="bg-white rounded-2xl p-8 shadow-lg border-l-4 border-red-400 relative"
-            >
-              <h3
-                class="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3"
+            <div class="flex items-center gap-2">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <div
-                  class="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center"
-                >
-                  <div class="text-red-500 text-lg">🚫</div>
-                </div>
-                No more...
-              </h3>
-              <div class="space-y-4">
-                <div
-                  class="flex items-start gap-4 p-3 bg-red-50 rounded-lg border border-red-100"
-                >
-                  <div
-                    class="w-5 h-5 rounded-full bg-red-200 flex items-center justify-center mt-0.5 flex-shrink-0"
-                  >
-                    <svg
-                      width="10"
-                      height="10"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M18 6L6 18M6 6l12 12"
-                        stroke="#DC2626"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </div>
-                  <p class="text-gray-700 leading-relaxed">
-                    Endless workflow brainstorming & planning
-                  </p>
-                </div>
-                <div
-                  class="flex items-start gap-4 p-3 bg-red-50 rounded-lg border border-red-100"
-                >
-                  <div
-                    class="w-5 h-5 rounded-full bg-red-200 flex items-center justify-center mt-0.5 flex-shrink-0"
-                  >
-                    <svg
-                      width="10"
-                      height="10"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M18 6L6 18M6 6l12 12"
-                        stroke="#DC2626"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </div>
-                  <p class="text-gray-700 leading-relaxed">
-                    Weeks spent learning Make, Zapier, or N8N
-                  </p>
-                </div>
-                <div
-                  class="flex items-start gap-4 p-3 bg-red-50 rounded-lg border border-red-100"
-                >
-                  <div
-                    class="w-5 h-5 rounded-full bg-red-200 flex items-center justify-center mt-0.5 flex-shrink-0"
-                  >
-                    <svg
-                      width="10"
-                      height="10"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M18 6L6 18M6 6l12 12"
-                        stroke="#DC2626"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </div>
-                  <p class="text-gray-700 leading-relaxed">
-                    Manually dragging, configuring, & connecting
-                    modules
-                  </p>
-                </div>
-                <div
-                  class="flex items-start gap-4 p-3 bg-red-50 rounded-lg border border-red-100"
-                >
-                  <div
-                    class="w-5 h-5 rounded-full bg-red-200 flex items-center justify-center mt-0.5 flex-shrink-0"
-                  >
-                    <svg
-                      width="10"
-                      height="10"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M18 6L6 18M6 6l12 12"
-                        stroke="#DC2626"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </div>
-                  <p class="text-gray-700 leading-relaxed">
-                    Tedious input/output mapping nightmares
-                  </p>
-                </div>
-              </div>
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+                <path
+                  d="M12 6v6l4 2"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              Save hours every week
             </div>
-
-            <!-- Center Arrow - Transformation -->
-            <div
-              class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 hidden lg:flex flex-col items-center"
-            >
-              <div
-                class="bg-gradient-to-r from-blue-500 to-purple-600 rounded-full p-4 shadow-lg"
+            <div class="flex items-center gap-2">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <svg
-                  width="32"
-                  height="32"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M5 12h14m-7-7l7 7-7 7"
-                    stroke="white"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </div>
-              <div
-                class="mt-2 bg-white px-3 py-1 rounded-full shadow-md border"
-              >
-                <span class="text-sm font-semibold text-blue-600"
-                  >NEW RULES</span
-                >
-              </div>
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="3"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+                <path
+                  d="M12 1v6m0 6v6m11-7h-6m-6 0H1"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+              Works 24/7 automatically
             </div>
-
-            <!-- Right Section - New Way -->
-            <div
-              class="bg-white rounded-2xl p-8 shadow-lg border-l-4 border-blue-400 relative"
-            >
-              <h3
-                class="text-2xl font-bold text-blue-600 mb-8 flex items-center gap-3"
+            <div class="flex items-center gap-2">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <div
-                  class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center"
-                >
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"
-                      fill="#2563EB"
-                    />
-                  </svg>
-                </div>
-                Automate without the overload
-              </h3>
-              <div class="space-y-4">
-                <div
-                  class="flex items-start gap-4 p-3 bg-blue-50 rounded-lg border border-blue-100"
-                >
-                  <div
-                    class="w-5 h-5 rounded-full bg-green-200 flex items-center justify-center mt-0.5 flex-shrink-0"
-                  >
-                    <svg
-                      width="10"
-                      height="10"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M16.7 4.3L7.5 13.5L3.3 9.3"
-                        stroke="#16A34A"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </div>
-                  <p class="text-gray-700 leading-relaxed">
-                    Workflows built for you — no architecture required
-                  </p>
-                </div>
-                <div
-                  class="flex items-start gap-4 p-3 bg-blue-50 rounded-lg border border-blue-100"
-                >
-                  <div
-                    class="w-5 h-5 rounded-full bg-green-200 flex items-center justify-center mt-0.5 flex-shrink-0"
-                  >
-                    <svg
-                      width="10"
-                      height="10"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M16.7 4.3L7.5 13.5L3.3 9.3"
-                        stroke="#16A34A"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </div>
-                  <p class="text-gray-700 leading-relaxed">
-                    Zero learning curve — get started instantly
-                  </p>
-                </div>
-                <div
-                  class="flex items-start gap-4 p-3 bg-blue-50 rounded-lg border border-blue-100"
-                >
-                  <div
-                    class="w-5 h-5 rounded-full bg-green-200 flex items-center justify-center mt-0.5 flex-shrink-0"
-                  >
-                    <svg
-                      width="10"
-                      height="10"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M16.7 4.3L7.5 13.5L3.3 9.3"
-                        stroke="#16A34A"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </div>
-                  <p class="text-gray-700 leading-relaxed">
-                    Smart modules, pre-configured — just hit play
-                  </p>
-                </div>
-                <div
-                  class="flex items-start gap-4 p-3 bg-blue-50 rounded-lg border border-blue-100"
-                >
-                  <div
-                    class="w-5 h-5 rounded-full bg-green-200 flex items-center justify-center mt-0.5 flex-shrink-0"
-                  >
-                    <svg
-                      width="10"
-                      height="10"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M16.7 4.3L7.5 13.5L3.3 9.3"
-                        stroke="#16A34A"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </div>
-                  <p class="text-gray-700 leading-relaxed">
-                    Inputs & outputs handled — no manual mapping
-                  </p>
-                </div>
-              </div>
+                <path
+                  d="M20 6L9 17l-5-5"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              No coding required
             </div>
           </div>
         </div>
@@ -675,59 +359,117 @@
             complexity.
           </p>
 
-          <div class="grid lg:grid-cols-2 gap-12 items-center">
-            <div class="feature-benefit-card">
-              <div class="flex items-center gap-4 mb-6">
-                <div
-                  class="w-10 h-10 flex items-center justify-center bg-blue-50 rounded-lg"
-                >
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
+          <!-- Zero Learning Curve Section -->
+          <div class="mt-32 mb-32">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+              <!-- Zero Learning Curve Content -->
+              <div>
+                <div class="flex items-center gap-4 mb-6">
+                  <div
+                    class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center"
                   >
-                    <path
-                      d="M4 8C4 5.79086 5.79086 4 8 4H16C18.2091 4 20 5.79086 20 8V16C20 18.2091 18.2091 20 16 20H8C5.79086 20 4 18.2091 4 16V8Z"
-                      stroke="#4285F4"
-                      stroke-width="2"
-                    />
-                  </svg>
-                </div>
-                <h3 class="text-2xl font-bold text-gray-900">
-                  Intuitive, Prompt-Based Workflow Creation
-                </h3>
-              </div>
-              <p class="text-gray-600 text-base mb-6 leading-relaxed">
-                Simply describe the automation you want in natural
-                language. Our intelligent interface translates your
-                words into actionable workflows.
-              </p>
-            </div>
-
-            <div class="workflow-demo-panel">
-              <div
-                class="demo-interface bg-white rounded-xl p-6 shadow-lg border border-gray-200 h-full flex flex-col justify-center"
-              >
-                <div class="flex justify-between items-center mb-6">
-                  <h4 class="text-xl font-semibold text-gray-900">
-                    + Create New Automation
-                  </h4>
-                </div>
-                <div class="demo-content">
-                  <p
-                    class="text-base text-gray-700 mb-8 leading-relaxed"
-                  >
-                    "When a new lead submits our contact form, send
-                    them a welcome email and add them to our CRM."
-                  </p>
-                  <div class="flex gap-4 items-center">
-                    <button
-                      class="bg-blue-600 text-white px-6 py-3 rounded-md font-medium hover:bg-blue-700 transition-colors duration-300"
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      Create Workflow
-                    </button>
+                      <path
+                        d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"
+                        fill="#059669"
+                      />
+                    </svg>
+                  </div>
+                  <h3 class="text-2xl font-bold text-gray-900">
+                    Zero Learning Curve
+                  </h3>
+                </div>
+                <p
+                  class="text-gray-600 text-base mb-6 leading-relaxed"
+                >
+                  Skip the endless workflow brainstorming and weeks of
+                  training. LuminFeed understands natural language, so
+                  you can create powerful automations instantly
+                  without learning complex visual programming or
+                  technical jargon.
+                </p>
+              </div>
+
+              <!-- Existing Tools Icons -->
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Zapier -->
+                <div
+                  class="bg-orange-50 rounded-xl p-6 text-center border border-orange-100"
+                >
+                  <div class="flex flex-col items-center gap-4">
+                    <div
+                      class="w-12 h-12 flex items-center justify-center"
+                    >
+                      <img
+                        src="assets/zapier.svg"
+                        alt="Zapier"
+                        class="w-full h-full object-contain object-center"
+                      />
+                    </div>
+                    <div class="text-center">
+                      <h4 class="font-semibold text-gray-900 mb-2">
+                        Zapier
+                      </h4>
+                      <p class="text-sm text-gray-600">
+                        Weeks to master complex workflows
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Make.com -->
+                <div
+                  class="bg-purple-50 rounded-xl p-6 text-center border border-purple-100"
+                >
+                  <div class="flex flex-col items-center gap-4">
+                    <div
+                      class="w-12 h-12 flex items-center justify-center"
+                    >
+                      <img
+                        src="assets/make.png"
+                        alt="Make.com"
+                        class="w-full h-full object-contain object-center"
+                      />
+                    </div>
+                    <div class="text-center">
+                      <h4 class="font-semibold text-gray-900 mb-2">
+                        Make.com
+                      </h4>
+                      <p class="text-sm text-gray-600">
+                        Complex visual programming
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- N8N -->
+                <div
+                  class="bg-pink-50 rounded-xl p-6 text-center border border-pink-100"
+                >
+                  <div class="flex flex-col items-center gap-4">
+                    <div
+                      class="w-12 h-12 flex items-center justify-center"
+                    >
+                      <img
+                        src="assets/n8n.jpg"
+                        alt="N8N"
+                        class="w-full h-full object-contain object-center"
+                      />
+                    </div>
+                    <div class="text-center">
+                      <h4 class="font-semibold text-gray-900 mb-2">
+                        N8N
+                      </h4>
+                      <p class="text-sm text-gray-600">
+                        Technical expertise needed
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -795,28 +537,11 @@
                 <!-- Slack -->
                 <div class="bg-purple-50 rounded-xl p-8 text-center">
                   <div class="w-12 h-12 mx-auto mb-4">
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M5.042 15.165C5.042 16.721 3.794 17.969 2.238 17.969C0.682 17.969 -0.566 16.721 -0.566 15.165C-0.566 13.609 0.682 12.361 2.238 12.361H5.042V15.165Z"
-                        fill="#E01E5A"
-                      />
-                      <path
-                        d="M6.313 15.165C6.313 13.609 7.561 12.361 9.117 12.361C10.673 12.361 11.921 13.609 11.921 15.165V21.762C11.921 23.318 10.673 24.566 9.117 24.566C7.561 24.566 6.313 23.318 6.313 21.762V15.165Z"
-                        fill="#E01E5A"
-                      />
-                      <path
-                        d="M9.117 5.042C7.561 5.042 6.313 3.794 6.313 2.238C6.313 0.682 7.561 -0.566 9.117 -0.566C10.673 -0.566 11.921 0.682 11.921 2.238V5.042H9.117Z"
-                        fill="#36C5F0"
-                      />
-                      <path
-                        d="M9.117 6.313C10.673 6.313 11.921 7.561 11.921 9.117C11.921 10.673 10.673 11.921 9.117 11.921H2.52C0.964 11.921 -0.284 10.673 -0.284 9.117C-0.284 7.561 0.964 6.313 2.52 6.313H9.117Z"
-                        fill="#36C5F0"
-                      />
-                    </svg>
+                    <img
+                      src="assets/slack.webp"
+                      alt="Slack"
+                      class="w-full h-full object-contain"
+                    />
                   </div>
                   <h4 class="font-semibold text-gray-900">Slack</h4>
                 </div>
@@ -824,33 +549,11 @@
                 <!-- HubSpot -->
                 <div class="bg-orange-50 rounded-xl p-8 text-center">
                   <div class="w-12 h-12 mx-auto mb-4">
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <circle cx="12" cy="12" r="10" fill="#FF7A59" />
-                      <path
-                        d="M8 10C8.55228 10 9 9.55228 9 9C9 8.44772 8.55228 8 8 8C7.44772 8 7 8.44772 7 9C7 9.55228 7.44772 10 8 10Z"
-                        fill="white"
-                      />
-                      <path
-                        d="M16 16C16.5523 16 17 15.5523 17 15C17 14.4477 16.5523 14 16 14C15.4477 14 15 14.4477 15 15C15 15.5523 15.4477 16 16 16Z"
-                        fill="white"
-                      />
-                      <path
-                        d="M8.5 10.5L15.5 13.5"
-                        stroke="white"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                      />
-                      <path
-                        d="M12 6V18"
-                        stroke="white"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                      />
-                    </svg>
+                    <img
+                      src="assets/hubspot.webp"
+                      alt="HubSpot"
+                      class="w-full h-full object-contain"
+                    />
                   </div>
                   <h4 class="font-semibold text-gray-900">HubSpot</h4>
                 </div>
@@ -860,7 +563,7 @@
               <div>
                 <div class="flex items-center gap-4 mb-6">
                   <div
-                    class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center"
+                    class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center"
                   >
                     <svg
                       width="24"
@@ -870,19 +573,21 @@
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M8 16l2.879-7.879a.5.5 0 0 1 .242-.242L18 6l-2.121 6.879a.5.5 0 0 1-.242.242L8 16z"
-                        stroke="#059669"
+                        d="M12 2L22 12L12 22L2 12L12 2Z"
+                        fill="none"
+                        stroke="#3B82F6"
                         stroke-width="2"
                         stroke-linecap="round"
                         stroke-linejoin="round"
                       />
                       <path
-                        d="M13 13l6-6"
-                        stroke="#059669"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        d="M12 8L16 12L12 16L8 12L12 8Z"
+                        fill="#3B82F6"
                       />
+                      <circle cx="12" cy="6" r="1" fill="#3B82F6" />
+                      <circle cx="18" cy="12" r="1" fill="#3B82F6" />
+                      <circle cx="12" cy="18" r="1" fill="#3B82F6" />
+                      <circle cx="6" cy="12" r="1" fill="#3B82F6" />
                     </svg>
                   </div>
                   <h3 class="text-2xl font-bold text-gray-900">

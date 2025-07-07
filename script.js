@@ -5,6 +5,8 @@ const contactForm = document.getElementById("contactForm");
 const statNumbers = document.querySelectorAll(".stat-number");
 const mobileMenuBtn = document.getElementById("mobileMenuBtn");
 const mobileMenu = document.getElementById("mobileMenu");
+const workflowInput = document.getElementById("workflowInput");
+const exampleButtons = document.querySelectorAll(".example-button");
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -87,6 +89,23 @@ if (watchDemoBtn) {
     );
   });
 }
+
+// Example button handlers for workflow input
+exampleButtons.forEach((button) => {
+  button.addEventListener("click", function () {
+    const exampleText = this.getAttribute("data-example");
+    if (workflowInput && exampleText) {
+      workflowInput.value = exampleText;
+      workflowInput.focus();
+
+      // Add visual feedback
+      this.style.transform = "scale(0.95)";
+      setTimeout(() => {
+        this.style.transform = "scale(1)";
+      }, 150);
+    }
+  });
+});
 
 // Animated counter for statistics
 function animateStats() {
