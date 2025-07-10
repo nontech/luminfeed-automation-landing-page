@@ -1,5 +1,130 @@
-// Import the waitlist database function
-import { insertWaitlistRow, isValidEmail } from "./waitlist-db.js";
+// ===================================================================
+// GOOGLE FORMS CONFIGURATION
+// ===================================================================
+const GOOGLE_FORM_ACTION =
+  "https://docs.google.com/forms/d/e/1FAIpQLSeVvTi-s9ZrkjIkhC0684Xs38MekLpAGeVXEPxwVo5vuh47Cw/formResponse";
+
+const GOOGLE_FORM_FIELDS = {
+  email: "entry.1665392", // Email field
+  userType: "entry.1358532560", // Customer Type field
+  createdOn: "entry.1188257748", // Created On field
+};
+
+// ===================================================================
+// UTILITY FUNCTIONS
+// ===================================================================
+
+// Email validation function
+function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+// Date formatting function for Google Forms
+function formatDateForForm(date) {
+  const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  const dayName = days[date.getDay()];
+  const day = date.getDate();
+  const monthName = months[date.getMonth()];
+  const year = date.getFullYear();
+
+  let hours = date.getHours();
+  const minutes = date.getMinutes().toString().padStart(2, "0");
+  const ampm = hours >= 12 ? "pm" : "am";
+
+  // Convert to 12-hour format
+  hours = hours % 12;
+  hours = hours ? hours : 12; // 0 should be 12
+
+  return `${dayName}, ${day} ${monthName}, ${year} ${hours}:${minutes} ${ampm}`;
+}
+
+/**
+ * Submits waitlist data to Google Forms
+ * @param {string} email - The email address (required)
+ * @param {string} customer_type - The customer type (required)
+ * @returns {Promise<Object>} - Returns success status
+ */
+async function insertWaitlistRow(email, customer_type) {
+  try {
+    // Validate inputs
+    if (!email || typeof email !== "string") {
+      throw new Error("Email is required and must be a string");
+    }
+
+    if (!customer_type || typeof customer_type !== "string") {
+      throw new Error(
+        "Customer type is required and must be a string"
+      );
+    }
+
+    // Validate email format
+    if (!isValidEmail(email)) {
+      throw new Error("Invalid email format");
+    }
+
+    // Prepare form data
+    const formData = new FormData();
+    formData.append(
+      GOOGLE_FORM_FIELDS.email,
+      email.trim().toLowerCase()
+    );
+    formData.append(
+      GOOGLE_FORM_FIELDS.userType,
+      customer_type.trim()
+    );
+
+    // Add current timestamp to Created On field with custom format
+    const now = new Date();
+    const formattedDate = formatDateForForm(now);
+    console.log(
+      "Sending formatted date to Google Forms:",
+      formattedDate
+    );
+    formData.append(GOOGLE_FORM_FIELDS.createdOn, formattedDate);
+
+    // Submit to Google Forms
+    await fetch(GOOGLE_FORM_ACTION, {
+      method: "POST",
+      mode: "no-cors", // Google Forms requires no-cors mode
+      body: formData,
+    });
+
+    // Note: With no-cors, we can't read the response, so we assume success
+    console.log("Successfully submitted to Google Forms");
+    return {
+      success: true,
+      data: {
+        id: Date.now(),
+        email: email.trim().toLowerCase(),
+        customer_type: customer_type.trim(),
+        timestamp: formattedDate,
+      },
+    };
+  } catch (error) {
+    console.error("Error submitting to Google Forms:", error.message);
+    return { success: false, error: error.message };
+  }
+}
+
+// ===================================================================
+// MAIN APPLICATION CLASS
+// ===================================================================
 
 // Application state management
 class LuminFeedApp {
@@ -412,29 +537,10 @@ class LuminFeedApp {
     } catch (error) {
       console.error("Waitlist submission error:", error);
 
-      // Handle specific error cases
-      if (
-        error.message.includes("configuration") ||
-        error.message.includes("API key")
-      ) {
-        // Still save to localStorage as fallback
-        this.saveToLocalStorage(email, userType, Date.now());
-        setTimeout(() => {
-          this.openSuccessModal();
-          this.resetButton(submitBtn, originalText);
-        }, 1500);
-        console.warn(
-          "Database unavailable - saved locally as backup"
-        );
-      } else if (error.message.includes("already exists")) {
-        this.showWaitlistError(
-          "You're already on our waitlist! Thanks for your interest."
-        );
-      } else {
-        this.showWaitlistError(
-          "Something went wrong. Please try again or contact support."
-        );
-      }
+      // Handle submission errors gracefully
+      this.showWaitlistError(
+        "Something went wrong. Please try again or contact support."
+      );
 
       this.resetButton(submitBtn, originalText);
     }
@@ -458,7 +564,7 @@ class LuminFeedApp {
     waitlistEmails.push({
       email,
       userType,
-      timestamp: new Date().toISOString(),
+      timestamp: formatDateForForm(new Date()),
       id,
     });
     localStorage.setItem(
