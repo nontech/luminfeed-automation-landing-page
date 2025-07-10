@@ -78,8 +78,9 @@
           <button
             class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200"
             id="getStartedBtn"
+            data-action="open-waitlist"
           >
-            Get Started
+            Get Early Access
           </button>
 
           <!-- Mobile menu button -->
@@ -1073,8 +1074,10 @@ When a new lead submits our contact form, send them a welcome email and add them
           >
             <button
               class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-50 transition-colors duration-200 flex items-center gap-2 min-w-56"
+              id="tryLuminFeedBtn"
+              data-action="open-waitlist"
             >
-              Try LuminFeed
+              Get Early Access
               <svg
                 width="20"
                 height="20"
@@ -1096,6 +1099,288 @@ When a new lead submits our contact form, send them a welcome email and add them
       </section>
     </main>
 
+    <!-- Waitlist Modal -->
+    <div id="waitlistModal" class="fixed inset-0 z-50 hidden">
+      <!-- Backdrop -->
+      <div
+        class="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"
+      ></div>
+
+      <!-- Modal Content -->
+      <div
+        class="relative min-h-screen flex items-center justify-center p-4"
+      >
+        <div
+          class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 transform transition-all"
+        >
+          <!-- Close Button -->
+          <button
+            id="closeWaitlistModal"
+            class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+            data-action="close-waitlist"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18 6L6 18M6 6l12 12"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+          </button>
+
+          <!-- Header -->
+          <div class="text-center mb-6">
+            <div
+              class="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"
+                  fill="white"
+                />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">
+              Join the Waitlist
+            </h3>
+            <p class="text-gray-600 text-sm">
+              Skip the learning curve. Save hours every week.
+            </p>
+          </div>
+
+          <!-- Benefits -->
+          <div class="mb-6 space-y-3">
+            <div class="flex items-center gap-3">
+              <div
+                class="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0"
+              >
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 2L3.09 8.26L4 21L12 17L20 21L20.91 8.26L12 2Z"
+                    stroke="#059669"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    fill="#059669"
+                    fill-opacity="0.1"
+                  />
+                </svg>
+              </div>
+              <span class="text-sm text-gray-700"
+                ><strong>$5 for 1-month Pro</strong> subscription
+                (worth $19)</span
+              >
+            </div>
+            <div class="flex items-center gap-3">
+              <div
+                class="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0"
+              >
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 6L9 17l-5-5"
+                    stroke="#059669"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <span class="text-sm text-gray-700"
+                ><strong>Priority access</strong> when we launch</span
+              >
+            </div>
+            <div class="flex items-center gap-3">
+              <div
+                class="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0"
+              >
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2Z"
+                    stroke="#059669"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    fill="#059669"
+                    fill-opacity="0.1"
+                  />
+                  <path
+                    d="M14 2V8H20"
+                    stroke="#059669"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <span class="text-sm text-gray-700"
+                ><strong>Exclusive pre-built</strong> automation
+                templates</span
+              >
+            </div>
+          </div>
+
+          <!-- Social Proof -->
+          <div class="bg-blue-50 rounded-lg p-4 mb-6 text-center">
+            <p class="text-sm text-blue-700">
+              <span class="font-semibold" id="waitlistCount"
+                >1,247</span
+              >
+              people are already saving time with LuminFeed
+            </p>
+          </div>
+
+          <!-- Form -->
+          <form id="waitlistForm" class="space-y-4">
+            <div>
+              <input
+                type="email"
+                id="waitlistEmail"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+                placeholder="Enter your best email address"
+                required
+              />
+            </div>
+            <div>
+              <select
+                id="userType"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all bg-white text-gray-700"
+                required
+              >
+                <option value="" disabled selected>I am a...</option>
+                <option value="entrepreneur">Entrepreneur</option>
+                <option value="company-employee">
+                  Company Employee
+                </option>
+                <option value="student">Student</option>
+                <option value="freelancer">Freelancer</option>
+                <option value="ai-automation-engineer">
+                  AI/Automation Engineer
+                </option>
+                <option value="business-owner">Business Owner</option>
+                <option value="consultant">Consultant</option>
+                <option value="developer">Developer</option>
+                <option value="marketing-professional">
+                  Marketing Professional
+                </option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <button
+              type="submit"
+              id="joinWaitlistBtn"
+              class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl"
+            >
+              Secure My Spot - It's Free!
+            </button>
+          </form>
+
+          <!-- Privacy Notice -->
+          <p class="text-xs text-gray-500 mt-4 text-center">
+            No spam. Unsubscribe anytime. We respect your privacy.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 z-50 hidden">
+      <!-- Backdrop -->
+      <div
+        class="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"
+      ></div>
+
+      <!-- Modal Content -->
+      <div
+        class="relative min-h-screen flex items-center justify-center p-4"
+      >
+        <div
+          class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 transform transition-all text-center"
+        >
+          <!-- Success Icon -->
+          <div
+            class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6"
+          >
+            <svg
+              width="40"
+              height="40"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20 6L9 17l-5-5"
+                stroke="#059669"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+
+          <!-- Header -->
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">
+            You're In!
+          </h3>
+          <p class="text-gray-600 mb-6">
+            Welcome to the LuminFeed waitlist! You'll be among the
+            first to experience automation without the complexity.
+          </p>
+
+          <!-- Next Steps -->
+          <div class="bg-blue-50 rounded-lg p-4 mb-6 text-left">
+            <h4 class="font-semibold text-blue-900 mb-2">
+              What happens next:
+            </h4>
+            <ul class="text-sm text-blue-700 space-y-1">
+              <li>• Get exclusive pre-built automation templates</li>
+              <li>• Priority access when we launch</li>
+              <li>• $5 for 1-month Pro subscription (worth $19)</li>
+            </ul>
+          </div>
+
+          <!-- Close Button -->
+          <button
+            id="closeSuccessModal"
+            class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors"
+            data-action="close-success"
+          >
+            Got It!
+          </button>
+        </div>
+      </div>
+    </div>
+
     <footer class="footer bg-gray-900 text-white text-center py-8">
       <div class="max-w-7xl mx-auto px-5">
         <p class="opacity-80">
@@ -1104,6 +1389,7 @@ When a new lead submits our contact form, send them a welcome email and add them
       </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script type="module" src="script.js"></script>
   </body>
 </html>
